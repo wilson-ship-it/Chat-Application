@@ -21,6 +21,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Avatar, AvatarImage } from "../../../../../../components/ui/avatar"
 import { getColor } from "../../../../../../lib/utils"
 import { useAppStore } from "../../../../../../store"
+import { HOST } from "../../../../../../utils/constants"
 
 const NewDM = () => {
     const {setSelectedChatType,setSelectedChatData}=useAppStore();

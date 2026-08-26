@@ -1,7 +1,7 @@
 import { compare } from "bcrypt";
 import User from "../models/UserModel.js";
 import jwt from "jsonwebtoken";
-import {renameSync,unlinkSync} from "fs"
+import {renameSync,unlinkSync,existsSync} from "fs"
 
 const maxAge =3*24*60*60*1000;
 
@@ -150,7 +150,7 @@ export const removeProfileImage=async (req,res,next)=>{
 
         if(!user) return res.status(404).send("user not found");
 
-        if(user.image) unlinkSync(user.image);
+        if(user.image && existsSync(user.image)) unlinkSync(user.image); //if(user.image) unlinkSync(user.image);
 
         user.image=null;
         await user.save();

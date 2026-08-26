@@ -176,7 +176,7 @@ const MessageContainer = () => {
       {message.messageType === "text" && (
         <div
           className={`${
-            message.sender._id !== userInfo._id
+            message.sender._id !== userInfo.id
               ? "bg-[#8417ff]/5 text-[#8417ff]/90 border-[#8417ff]/50"
               : "bg-[#2a2b33]/5 text-white/80 border-[#ffffff]/20"
           } border inline-block p-4 rounded my-1 max-w-[50%] break-words ml-9`}
@@ -231,7 +231,7 @@ const MessageContainer = () => {
                             <AvatarFallback className={`uppercase h-8 w-8 text-lg flex items-center justify-center rounded-full ${getColor(message.sender.color)}`}>
                             
                               {message.sender.firstName?
-                               message.sender.firstName.split("").shift: 
+                               message.sender.firstName.split("").shift(): 
                                message.sender.email.split("").shift() }
                             </AvatarFallback>
                     </Avatar>
